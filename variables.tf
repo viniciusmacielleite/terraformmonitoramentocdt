@@ -1,9 +1,9 @@
 variable "location" {  
     type = string 
-    default = "eastus"
+    default = "brazilsouth"
 }
 
 variable "global_name_app" {  
     type    = string
-    default = ""
+    default = "monitorcrmcdt"
 }
