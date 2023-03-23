@@ -30,7 +30,7 @@ resource "azurerm_linux_web_app" "lwa" {
       always_on         = true
       websockets_enabled  = true
       application_stack {
-          docker_image  = "viniciusmacielleite/dockermonitoramentocdt"
+          docker_image  = "viniciusmacielleite/dockermonitoramentocrm"
           docker_image_tag  = "c5ec48d3a1fbab37c5edfc51d6980ae1ea1518d1"
       }
   }
