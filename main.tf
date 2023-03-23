@@ -14,8 +14,6 @@ resource "azurerm_service_plan" "sp" {
   location            = var.location
   sku_name            = "B1"
   os_type             = "Linux"
-
-  depends_on = [ azurerm_resource_group.rg ]
 }
 
 resource "azurerm_linux_web_app" "lwa" {
@@ -32,8 +30,8 @@ resource "azurerm_linux_web_app" "lwa" {
       always_on         = true
       websockets_enabled  = true
       application_stack {
-          docker_image  = "louislam/uptime-kuma"
-          docker_image_tag  = "1"
+          docker_image  = "viniciusmacielleite/dockermonitoramentocdt"
+          docker_image_tag  = "c5ec48d3a1fbab37c5edfc51d6980ae1ea1518d1"
       }
   }
 
