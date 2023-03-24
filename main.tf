@@ -3,6 +3,11 @@ provider "azurerm" {
   
 }
 
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-crm"
+  location = "brazilsouth"
+}
+
 resource "azurerm_service_plan" "sp" {
   name                = var.global_name_app
   resource_group_name = "rg-crm"
