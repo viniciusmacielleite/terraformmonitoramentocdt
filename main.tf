@@ -3,14 +3,9 @@ provider "azurerm" {
   
 }
 
-resource "azurerm_resource_group" "rg" {
-  name     = var.global_name_app
-  location = var.location
-}
-
 resource "azurerm_service_plan" "sp" {
   name                = var.global_name_app
-  resource_group_name = var.global_name_app
+  resource_group_name = "rg-crm"
   location            = var.location
   sku_name            = "B1"
   os_type             = "Linux"
@@ -18,7 +13,7 @@ resource "azurerm_service_plan" "sp" {
 
 resource "azurerm_linux_web_app" "lwa" {
   name                = var.global_name_app
-  resource_group_name = var.global_name_app
+  resource_group_name = "rg-crm"
   location            = var.location
   service_plan_id     = azurerm_service_plan.sp.id
   app_settings = {
