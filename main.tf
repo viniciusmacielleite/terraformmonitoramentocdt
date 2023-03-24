@@ -5,7 +5,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "rg-crm"
-  location = "brazilsouth"
+  location = var.location
 }
 
 resource "azurerm_service_plan" "sp" {
@@ -19,7 +19,7 @@ resource "azurerm_service_plan" "sp" {
 resource "azurerm_linux_web_app" "lwa" {
   name                = var.global_name_app
   resource_group_name = "rg-crm"
-  location            = "brazilsouth"
+  location            = var.location
   service_plan_id     = azurerm_service_plan.sp.id
   app_settings = {
       WEBSITES_ENABLE_APP_SERVICE_STORAGE = true
