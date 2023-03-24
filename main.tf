@@ -18,7 +18,7 @@ resource "azurerm_linux_web_app" "lwa" {
   service_plan_id     = azurerm_service_plan.sp.id
   app_settings = {
       WEBSITES_ENABLE_APP_SERVICE_STORAGE = true
-      DOCKER_ENABLE_CI = false
+      DOCKER_ENABLE_CI = true
       DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
   } 
   site_config {
@@ -26,7 +26,7 @@ resource "azurerm_linux_web_app" "lwa" {
       websockets_enabled  = true
       application_stack {
           docker_image  = "viniciusmacielleite/dockermonitoramentocrm"
-          docker_image_tag  = "c5ec48d3a1fbab37c5edfc51d6980ae1ea1518d1"
+          docker_image_tag  = "latest"
       }
   }
 
